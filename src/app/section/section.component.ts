@@ -10,17 +10,20 @@ export class SectionComponent implements OnInit{
   title = 'My Title';
 
   ngOnInit() {
-    setInterval(getRandomString('0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'), 3000);
+    setInterval(() => {
+      this.getRandomString()
+    }, 3000);
   }
 
 
-  function getRandomString(chars) {
+  getRandomString() {
+    let str = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
     let res = '';
-    while (res.length < 6) {
-      for (let i = 0; i < chars.length; i++) {
-        res += chars.charAt[Math.floor(Math.random() * chars.length)];
-        return res;
+    for (let i = 0; i < str.length; i++) {
+      while (res.length < 5) {
+        res += str[(Math.floor(Math.random() * str.length))];
       }
     }
+    return res;
   }
 }
